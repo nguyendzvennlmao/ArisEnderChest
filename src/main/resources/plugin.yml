@@ -1,0 +1,23 @@
+name: ArisEnderChest
+version: 1.0
+main: me.aris.arisenderchest.ArisEnderChest
+api-version: 1.20
+folia-supported: true
+author: VennLMAO
+commands:
+  ec:
+    description: Open custom enderchest
+    aliases: [enderchest]
+permissions:
+  arisenderchest.use:
+    default: op
+  arisenderchest.admin:
+    default: op
+  arisenderchest.row.3:
+    default: false
+  arisenderchest.row.4:
+    default: false
+  arisenderchest.row.5:
+    default: false
+  arisenderchest.row.6:
+    default: false

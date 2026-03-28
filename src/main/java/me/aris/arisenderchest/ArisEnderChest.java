@@ -13,7 +13,6 @@ public class ArisEnderChest extends JavaPlugin {
     public void onEnable() {
         instance = this;
         this.dataManager = new DataManager();
-        
         getCommand("ec").setExecutor(new ECCommand());
         getServer().getPluginManager().registerEvents(new InventoryListener(), this);
     }
@@ -32,4 +31,4 @@ public class ArisEnderChest extends JavaPlugin {
     public DataManager getDataManager() {
         return dataManager;
     }
-              }
+    }

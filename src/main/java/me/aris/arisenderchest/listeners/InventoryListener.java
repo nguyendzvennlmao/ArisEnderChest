@@ -14,7 +14,7 @@ import org.bukkit.inventory.Inventory;
 
 public class InventoryListener implements Listener {
 
-    private void handleSave(Player player, String title, Inventory inv) {
+    private void handleSave(String title, Inventory inv) {
         String prefix = ArisEnderChest.getInstance().getDataManager().getTitlePrefix();
         if (title != null && title.startsWith(prefix)) {
             String targetName = title.replace(prefix + " §7- ", "");
@@ -26,16 +26,16 @@ public class InventoryListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onClick(InventoryClickEvent event) {
-        handleSave((Player) event.getWhoClicked(), event.getView().getTitle(), event.getInventory());
+        handleSave(event.getView().getTitle(), event.getInventory());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onDrag(InventoryDragEvent event) {
-        handleSave((Player) event.getWhoClicked(), event.getView().getTitle(), event.getInventory());
+        handleSave(event.getView().getTitle(), event.getInventory());
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onClose(InventoryCloseEvent event) {
-        handleSave((Player) event.getPlayer(), event.getView().getTitle(), event.getInventory());
+        handleSave(event.getView().getTitle(), event.getInventory());
     }
-          }
+}

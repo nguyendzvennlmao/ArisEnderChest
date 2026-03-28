@@ -18,7 +18,13 @@ public class ECCommand implements CommandExecutor {
 
         if (args.length == 0) {
             if (!player.hasPermission("arisenderchest.use")) return true;
-            int rows = getRows(player);
+            
+            int rows = 3;
+            if (player.hasPermission("arisenderchest.row.6")) rows = 6;
+            else if (player.hasPermission("arisenderchest.row.5")) rows = 5;
+            else if (player.hasPermission("arisenderchest.row.4")) rows = 4;
+            else if (player.hasPermission("arisenderchest.row.3")) rows = 3;
+
             Inventory ec = ArisEnderChest.getInstance().getDataManager().getEnderChest(player, rows);
             player.openInventory(ec);
         } else {
@@ -30,11 +36,4 @@ public class ECCommand implements CommandExecutor {
         }
         return true;
     }
-
-    private int getRows(Player player) {
-        if (player.hasPermission("arisenderchest.row.6")) return 6;
-        if (player.hasPermission("arisenderchest.row.5")) return 5;
-        if (player.hasPermission("arisenderchest.row.4")) return 4;
-        return 3;
     }
-                                      }

@@ -27,7 +27,9 @@ public class DataManager {
             List<?> items = config.getList("items");
             if (items != null) {
                 ItemStack[] content = items.toArray(new ItemStack[0]);
-                inv.setContents(content);
+                for (int i = 0; i < content.length && i < inv.getSize(); i++) {
+                    inv.setItem(i, content[i]);
+                }
             }
         }
         return inv;
@@ -51,10 +53,8 @@ public class DataManager {
     public void saveAll() {
         for (Player p : Bukkit.getOnlinePlayers()) {
             String title = p.getOpenInventory().getTitle();
-            if (title.startsWith(titlePrefix)) {
-                String targetName = title.replace(titlePrefix + " §7- ", "");
-                OfflinePlayer target = Bukkit.getOfflinePlayer(targetName);
-                saveEnderChest(target.getUniqueId(), p.getOpenInventory().getTopInventory().getContents());
+            if (title != null && title.startsWith(titlePrefix)) {
+                saveEnderChest(p.getUniqueId(), p.getOpenInventory().getTopInventory().getContents());
             }
         }
     }
@@ -62,4 +62,4 @@ public class DataManager {
     public String getTitlePrefix() {
         return titlePrefix;
     }
-          }
+                    }

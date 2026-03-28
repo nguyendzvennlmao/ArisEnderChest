@@ -1,5 +1,5 @@
 name: ArisEnderChest
-version: 1.0
+version: 1.1
 main: me.aris.arisenderchest.ArisEnderChest
 api-version: 1.20
 folia-supported: true
@@ -8,16 +8,3 @@ commands:
   ec:
     description: Open custom enderchest
     aliases: [enderchest]
-permissions:
-  arisenderchest.use:
-    default: op
-  arisenderchest.admin:
-    default: op
-  arisenderchest.row.3:
-    default: false
-  arisenderchest.row.4:
-    default: false
-  arisenderchest.row.5:
-    default: false
-  arisenderchest.row.6:
-    default: false
